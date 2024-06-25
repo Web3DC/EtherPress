@@ -1,4 +1,5 @@
 import EditorBlogListComponent from "@/components/EditorBlogList";
+import EditorTransactionsComponent from "@/components/EditorTransactions";
 import HeaderComponent from "@/components/Header";
 
 export default function EditorDashboard() {
@@ -6,6 +7,7 @@ export default function EditorDashboard() {
       <div>
         <HeaderComponent />
         <EditorBlogListComponent />
+        <EditorTransactionsComponent />
       </div>
     );
   }
