@@ -1,6 +1,7 @@
 import { CardHeader, CardTitle, Card, CardContent, CardDescription, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image";
 
 import { ILatestResources } from "@/interfaces/latestResources"
 
@@ -15,7 +16,7 @@ export default function LatestPressComponent(ResourceInfo: ILatestResources) {
 
             {ResourceInfo.resources.map((resource, index) => (
                 <Card key={index} className="group overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
-                    <img
+                    <Image
                         src={resource.image}
                         alt="Blog Post Image"
                         width={300}
