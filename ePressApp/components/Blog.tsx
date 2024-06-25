@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { JSX, SVGProps } from "react"
 
 export default function BlogComponent() {
   return (
@@ -92,7 +93,7 @@ export default function BlogComponent() {
   )
 }
 
-function GitlabIcon(props) {
+function GitlabIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -112,7 +113,7 @@ function GitlabIcon(props) {
 }
 
 
-function LinkedinIcon(props) {
+function LinkedinIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -134,7 +135,7 @@ function LinkedinIcon(props) {
 }
 
 
-function TwitterIcon(props) {
+function TwitterIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
