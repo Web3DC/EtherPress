@@ -40,10 +40,11 @@ export default function HeaderComponent() {
           </Sheet>
         </nav>
 
-        <Link href="#" className="mr-6 flex items-center" prefetch={false}>
+        <Link href="/" className="mr-6 flex items-center" prefetch={false}>
           <Image src={SITE_LOGO} alt={`${SITE_NAME} logo`} width={90} height={90} className="h-fit"/>
           <span className="sr-only">{SITE_NAME}c</span>
         </Link>{" "}
+
         <nav className="hidden lg:flex items-center gap-4 text-sm font-medium">
           <NavigationMenu>
             <NavigationMenuList>
