@@ -13,13 +13,18 @@ export const MENU_ITEMS = [
         icon: "/resources/icons8-dashboard.svg"
     },
     { 
-        label: "Services", 
-        href: "/services",
-        icon: "/resources/icons8-services.svg"
+        label: "Admin Dashboard", 
+        href: "/admin-dashboard",
+        icon: "/resources/icons8-dashboard.svg"
     },
     { 
-        label: "Contact", 
+        label: "About Us", 
+        href: "/about",
+        icon: "/resources/icons8-about-us.svg"
+    },
+    { 
+        label: "Contact Us", 
         href: "/contact",
-        icon: "/resources/icons8-contact-us-50.png"
+        icon: "/resources/icons8-contact-us.svg"
     },
 ];
