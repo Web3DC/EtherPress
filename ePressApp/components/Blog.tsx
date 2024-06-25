@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { JSX, SVGProps } from "react"
+import Image from "next/image";
 
 export default function BlogComponent() {
   return (
@@ -16,7 +17,7 @@ export default function BlogComponent() {
             <Button variant="secondary">Mint</Button>
           </div>
         </div>
-        <img
+        <Image
           src="/resources/placeholder.svg"
           alt="Blog post cover image"
           width={1250}
@@ -65,7 +66,7 @@ export default function BlogComponent() {
       </article>
       <div className="max-w-3xl mx-auto flex items-start gap-8 mt-8 md:mt-12">
         <div className="flex gap-4">
-          <img src="/resources/profile.png" alt="Author profile image" width={128} height={0} className="rounded-full" />
+          <Image src="/resources/profile.png" alt="Author profile image" width={128} height={0} className="rounded-full" />
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-semibold">Jane Doe</h2>

@@ -32,9 +32,11 @@ export default function EditorBlogListComponent() {
               <TableCell>0.05 eth</TableCell>
               <TableCell>
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm">
-                    Edit
-                  </Button>
+                  <Link href="/edit-blog">
+                    <Button variant="outline" size="sm">
+                      Edit
+                    </Button>
+                  </Link>
                   <Button variant="outline" size="sm">
                     Publish
                   </Button>
@@ -48,9 +50,11 @@ export default function EditorBlogListComponent() {
               <TableCell>0.02 eth</TableCell>
               <TableCell>
                 <div className="flex space-x-2">
-                  <Button variant="outline" size="sm">
-                    Edit
-                  </Button>
+                  <Link href="/edit-blog">
+                    <Button variant="outline" size="sm">
+                      Edit
+                    </Button>
+                  </Link>
                   <Button variant="outline" size="sm">
                     Publish
                   </Button>
