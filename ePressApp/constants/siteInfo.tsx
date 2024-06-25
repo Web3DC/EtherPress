@@ -8,9 +8,9 @@ export const MENU_ITEMS = [
         icon: "/resources/icons8-home.svg" 
     },
     { 
-        label: "About", 
-        href: "/about",
-        icon: "/resources/icons8-about.svg"
+        label: "Editor Dashboard", 
+        href: "/editor-dashboard",
+        icon: "/resources/icons8-dashboard.svg"
     },
     { 
         label: "Services", 
