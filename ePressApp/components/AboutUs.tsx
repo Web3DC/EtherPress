@@ -27,7 +27,7 @@ export default function AboutUsComponent() {
                 <div>
                   <h3 className="text-lg font-semibold">Innovation</h3>
                   <p className="text-muted-foreground">
-                    We constantly strive to push the boundaries of what's possible, embracing new technologies and ideas
+                    We constantly strive to push the boundaries of what&apos;s possible, embracing new technologies and ideas
                     to deliver cutting-edge solutions.
                   </p>
                 </div>
