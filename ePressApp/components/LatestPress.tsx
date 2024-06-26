@@ -33,7 +33,9 @@ export default function LatestPressComponent(ResourceInfo: ILatestResources) {
                             {resource.description}
                         </CardContent>
                         <CardFooter>
-                            <Button className="mt-4">{resource.buttonTitle}</Button>
+                            <Link href={resource.resourceUrl}>
+                              <Button className="mt-4">{resource.buttonTitle}</Button>
+                            </Link>
                         </CardFooter>
                     </CardContent>
                 </Card>
