@@ -42,6 +42,9 @@ export default function WritersBlogListComponent() {
                   <Button variant="outline" size="sm">
                     Publish
                   </Button>
+                  <Button variant="outline" size="sm">
+                    Share
+                  </Button>
                 </div>
               </TableCell>
             </TableRow>
@@ -61,6 +64,9 @@ export default function WritersBlogListComponent() {
                   <Button variant="outline" size="sm">
                     Publish
                   </Button>
+                  <Button variant="outline" size="sm">
+                    Share
+                  </Button>
                 </div>
               </TableCell>
             </TableRow>
@@ -78,6 +84,9 @@ export default function WritersBlogListComponent() {
                   <Button variant="outline" size="sm">
                     Publish
                   </Button>
+                  <Button variant="outline" size="sm">
+                    Share
+                  </Button>
                 </div>
               </TableCell>
             </TableRow>
@@ -94,6 +103,9 @@ export default function WritersBlogListComponent() {
                   </Button>
                   <Button variant="outline" size="sm">
                     Publish
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    Share
                   </Button>
                 </div>
               </TableCell>
