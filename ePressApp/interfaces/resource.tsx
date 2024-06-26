@@ -3,4 +3,5 @@ export interface IResource {
     description: string;
     image: string;
     buttonTitle: string;
+    resourceUrl: string;
 }
