@@ -1,11 +1,17 @@
+"use client";
 
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import Link from "next/link"
 import Image from "next/image";
+import { useActiveAccount } from "thirdweb/react";
 
 import { HERO_CONTENT } from "../constants/heroInfo";
+import ConnectButtonComponent from "./ConnectButton";
 
 export default function HeroComponent() {
+
+  const account = useActiveAccount();
+
   return (
     <section className=" py-12 lg:my-6 mx-8">
       <div className="container px-4 md:px-6">
@@ -20,7 +26,7 @@ export default function HeroComponent() {
                         width="550"
                         height="550"
                         alt="Hero"
-                        className="mx-auto aspect-video overflow-hidden rounded-xl object-bottom sm:w-full lg:order-last lg:aspect-square"
+                        className="mx-auto aspect-video overflow-hidden rounded-xl object-bottom sm:w-full lg:order-last lg:aspect-auto"
                     />
                     <div className="flex flex-col justify-center space-y-4">
                         <div className="space-y-2">
@@ -31,13 +37,12 @@ export default function HeroComponent() {
                             {content.description}
                         </p>
                         </div>
-                        <Link
-                        href="#"
-                        className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                        prefetch={false}
-                        >
-                        {content.buttonTitle}
-                        </Link>
+
+                        { !(account?.address) && (
+                          <div className="w-12">
+                            <ConnectButtonComponent labelButton={content.buttonTitle}/>
+                          </div>
+                        )}
                     </div>
                     </div>
                 </CarouselItem>

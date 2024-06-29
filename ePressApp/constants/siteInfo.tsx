@@ -1,6 +1,6 @@
 // Description: Site information constants.
 export const SITE_NAME = "ePress";
-export const SITE_LOGO = "/resources/logo-placeholder-clear.png";
+export const SITE_LOGO = "/resources/web3dc-clear.png";
 export const MENU_ITEMS = [
     { 
         label: "Home", 
