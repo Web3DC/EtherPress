@@ -1,17 +1,13 @@
+"use client";
+
 import { thirdwebClient } from "@/utils/thirdweb";
 import { baseSepolia, defineChain } from "thirdweb/chains";
 
-import {
-  createWallet,
-  walletConnect,
-  inAppWallet,
-} from "thirdweb/wallets";
+import { createWallet, } from "thirdweb/wallets";
+import { ConnectButton, } from "thirdweb/react";
 
-import {
-  ThirdwebProvider,
-  ConnectButton,
-  useWalletInfo
-} from "thirdweb/react";
+import { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalContext';
 
 const walletsSetup = [
   createWallet("com.coinbase.wallet", {
@@ -27,10 +23,69 @@ interface TitleComponentProps {
 
 const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) => {
 
-    const handleDisconnect = () => {
-        // Handle the disconnect event here
-        console.log("Wallet disconnected");
-      };  
+  const {userIsMember, setUserIsMember} = useContext(GlobalContext);
+  const {userIsWriter, setUserIsWriter} = useContext(GlobalContext);
+  const {userIsAdmin, setUserIsAdmin} = useContext(GlobalContext);
+
+  const handleConnect = (userInfo: any) => {
+    // Handle the disconnect event here
+    const account = userInfo.getAccount();
+    //
+    // Check if user is Admin, Writer or Member
+    const memberWhiteList = process.env.NEXT_PUBLIC_MEMBER_ADDRESS_WHITE_LIST || "";
+    if (memberWhiteList.length > 0) {
+      const memberList = memberWhiteList.split(",");
+      if (account && account.address) {
+        if (memberList.includes(account.address)) {
+          console.log("User is Member: ", account.address);
+          setUserIsMember(true);
+        }  
+      }
+    }
+
+    const writerWhiteList = process.env.NEXT_PUBLIC_WRITER_ADDRESS_WHITE_LIST || "";
+    if (writerWhiteList.length > 0) {
+      const writerList = writerWhiteList.split(",");
+      if (account && account.address) {
+        if (writerList.includes(account.address)) {
+          console.log("User is Writer: ", account.address);
+          setUserIsWriter(true);
+        }  
+      }
+    }
+
+    const adminWhiteList = process.env.NEXT_PUBLIC_ADMIN_ADDRESS_WHITE_LIST || "";
+    if (adminWhiteList.length > 0) {
+      const adminList = adminWhiteList.split(",");
+      if (account && account.address) {
+        if (adminList.includes(account.address)) {
+          console.log("User is Admin: ", account.address);
+          setUserIsAdmin(true);
+        }
+      }
+    }
+
+    //
+    console.log("User is Admin: ", userIsAdmin);
+    console.log("User is Writer: ", userIsWriter);
+    console.log("User is Member: ", userIsMember);
+    //
+
+
+  };  
+
+  const handleDisconnect = () => {
+    // Handle the disconnect event here
+    console.log("Wallet disconnected");
+    setUserIsMember(false);
+    setUserIsWriter(false);
+    setUserIsAdmin(false);
+    //
+    console.log("User is Admin: ", userIsAdmin);
+    console.log("User is Writer: ", userIsWriter);
+    console.log("User is Member: ", userIsMember);
+    //
+  };  
     
     return (
         <ConnectButton
@@ -44,6 +99,7 @@ const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) 
                       showThirdwebBranding: false,
                     }}
                     chain={defineChain(baseSepolia)}
+                    onConnect={handleConnect}
                     onDisconnect={handleDisconnect}
                   />
     )
