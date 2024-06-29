@@ -1,24 +1,17 @@
 export const HERO_CONTENT = [
     {
-        title: "The complete platform for building the Web",
+        title: "How we were born",
         description:
-        "Give your team the toolkit to stop configuring and start innovating. Securely build, deploy, and scale the best web experiences.",
-        image: "/resources/placeholder.svg",
+        "Washington DC is the center of democracy, home to our government, and chock full of creatives and entrepreneurs. Started by a group of creatives, makers, artists, and builders with a goal to create a home base for discourse and collaboration; W3DC is a platform aimed to grow a community with connection, social responsibility, and education.",
+        image: "/resources/web3dc01.jpeg",
         buttonTitle: "Get Started",
     },
     {
-        title: "Experience the workflow the best teams love",
+        title: "What we do",
         description:
-        "Let your team focus on shipping features instead of managing infrastructure with automated CI/CD, built-in testing, and integrated collaboration.",
-        image: "/resources/placeholder.svg",
+        "Empowering the decentralized future, we shoulder the responsibility of educating, onboarding, and fostering a vibrant community, while advocating for social good through a diverse range of services, including Web3 education, user-centric onboarding, cutting-edge project consulting, groundbreaking conference organizing, and immersive real-life experiences.",
+        image: "/resources/web3dc02.jpg",
         buttonTitle: "Learn More",
-    },
-    {
-        title: "Secure, Scalable, and Reliable",
-        description:
-        "Our platform is designed to handle high traffic loads and ensure your application is always available, secure, and compliant.",
-        image: "/resources/placeholder.svg",
-        buttonTitle: "Contact Sales",
     },
 
     ];
