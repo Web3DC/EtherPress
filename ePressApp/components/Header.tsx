@@ -1,3 +1,4 @@
+"use client";
 
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import Image from "next/image";
 import { SITE_NAME, SITE_LOGO, MENU_ITEMS } from "../constants/siteInfo";
 import { JSX, SVGProps } from "react"
+import ConnectButtonComponent from "./ConnectButton"
 
 export default function HeaderComponent() {
   return (
@@ -67,35 +69,11 @@ export default function HeaderComponent() {
         </nav>
 
         <div className="ml-auto flex items-center gap-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <div className="flex items-center gap-2">
-                <div className="bg-muted text-foreground px-2 py-1 rounded-full text-sm">JohnDoe</div>
-                <Avatar className="h-9 w-9">
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>JP</AvatarFallback>
-                </Avatar>
-              </div>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>
-                <Link href="#" prefetch={false}>
-                  Profile
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="#" prefetch={false}>
-                  Settings
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <Link href="#" prefetch={false}>
-                  Logout
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+
+        <div className="ml-auto flex items-center gap-4">
+          <ConnectButtonComponent labelButton="Join"/>
+        </div>
+
         </div>
       </header>
     </div>
