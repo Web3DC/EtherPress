@@ -9,10 +9,17 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 
 import Image from "next/image";
 import { SITE_NAME, SITE_LOGO, MENU_ITEMS } from "../constants/siteInfo";
-import { JSX, SVGProps } from "react"
+import { useContext, JSX, SVGProps } from "react"
+import { GlobalContext } from '../context/GlobalContext';
+
 import ConnectButtonComponent from "./ConnectButton"
 
 export default function HeaderComponent() {
+
+  const {userIsMember, setUserIsMember} = useContext(GlobalContext);
+  const {userIsWriter, setUserIsWriter} = useContext(GlobalContext);
+  const {userIsAdmin, setUserIsAdmin} = useContext(GlobalContext);
+
   return (
     <div className="flex justify-center">
       <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 bg-background border border-muted shadow-md rounded-md mx-4">
@@ -29,14 +36,23 @@ export default function HeaderComponent() {
                 <SheetTitle>{SITE_NAME}</SheetTitle>
               </SheetHeader>
 
-              {MENU_ITEMS.map((item, index) => (
-                <Link key={index} href={item.href} prefetch={false}
-                className="flex w-full items-center gap-2 my-4 px-4 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
-                    <Image src={item.icon} alt={item.label} width={24} height={24} className="h-6 w-6"/>
-                    {item.label}
-                </Link>
-              ))}
+              { MENU_ITEMS.map((item, index) => {
+                if (item.public  || 
+                  (!item.public && item.memberOnly && userIsMember)  ||
+                  (!item.public && item.writerOnly && userIsWriter)  ||
+                  (!item.public && item.adminOnly && userIsAdmin)
+                ) 
+                {
+                  return (
+                  <Link key={index} href={item.href} prefetch={false}
+                  className="flex w-full items-center gap-2 my-4 px-4 py-2 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                      <Image src={item.icon} alt={item.label} width={24} height={24} className="h-6 w-6"/>
+                      {item.label}
+                  </Link>
+                  )
+                }}
+              )}
 
             </SheetContent>
           </Sheet>
@@ -50,19 +66,29 @@ export default function HeaderComponent() {
         <nav className="hidden lg:flex items-center gap-4 text-sm font-medium">
           <NavigationMenu>
             <NavigationMenuList>
-                {MENU_ITEMS.map((item, index) => (
+
+            { MENU_ITEMS.map((item, index) => {
+                if (item.public  || 
+                  (!item.public && item.memberOnly && userIsMember)  ||
+                  (!item.public && item.writerOnly && userIsWriter)  ||
+                  (!item.public && item.adminOnly && userIsAdmin)
+                ) 
+                {
+                  return (
                     <NavigationMenuItem key={index}>
-                    <NavigationMenuLink asChild>
-                        <Link
-                        href={item.href}
-                        className="px-4 py-2 rounded-md hover:bg-accent hover:text-accent-foreground"
-                        prefetch={false}
-                        >
-                        {item.label}
-                        </Link>
-                    </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                          <Link
+                          href={item.href}
+                          className="px-4 py-2 rounded-md hover:bg-accent hover:text-accent-foreground"
+                          prefetch={false}
+                          >
+                          {item.label}
+                          </Link>
+                      </NavigationMenuLink>
                     </NavigationMenuItem>
-                ))}
+                  )
+                }}
+              )}              
 
             </NavigationMenuList>
           </NavigationMenu>
