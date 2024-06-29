@@ -3,6 +3,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
 export default function EditBlogComponent() {
   return (
@@ -26,6 +27,27 @@ export default function EditBlogComponent() {
             Blog Image
           </Label>
           <Input id="image" type="file" accept="image/*" className="w-full" />
+        </div>
+        <div className="mb-6">
+          <Label htmlFor="image" className="mb-2">
+            Content Type
+          </Label>
+          <RadioGroup defaultValue="comfortable w-full">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="default" id="r1" />
+              <Label htmlFor="r1">External Content</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="comfortable" id="r2" />
+              <Label htmlFor="r2">Own Content(Allow Donation)</Label>
+            </div>
+          </RadioGroup>
+        </div>
+        <div className="mb-6">
+          <Label htmlFor="title" className="mb-2">
+            Content URL
+          </Label>
+          <Input id="contentUrl" type="text" placeholder="Enter your content url" className="w-full" />
         </div>
         <div className="mb-6">
           <Label htmlFor="content" className="mb-2">
