@@ -10,15 +10,15 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import Image from "next/image";
 import { SITE_NAME, SITE_LOGO, MENU_ITEMS } from "../constants/siteInfo";
 import { useContext, JSX, SVGProps } from "react"
-import { GlobalContext } from '../context/GlobalContext';
+import { useAppContext } from "@/context/GlobalContext";
 
 import ConnectButtonComponent from "./ConnectButton"
 
 export default function HeaderComponent() {
 
-  const {userIsMember, setUserIsMember} = useContext(GlobalContext);
-  const {userIsWriter, setUserIsWriter} = useContext(GlobalContext);
-  const {userIsAdmin, setUserIsAdmin} = useContext(GlobalContext);
+  const { userIsMember } = useAppContext();
+  const { userIsWriter } = useAppContext();
+  const { userIsAdmin } = useAppContext();
 
   return (
     <div className="flex justify-center">

@@ -8,7 +8,7 @@ import {
   ThirdwebProvider,
 } from "thirdweb/react";
 
-import { GlobalProvider } from "../context/GlobalContext"
+import { AppProvider } from "@/context/GlobalContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,11 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <GlobalProvider>
+        <AppProvider>
           <ThirdwebProvider>
             {children}
           </ThirdwebProvider>          
-        </GlobalProvider>
+        </AppProvider>
       </body>
     </html>
   );

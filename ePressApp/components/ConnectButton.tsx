@@ -7,7 +7,7 @@ import { createWallet, } from "thirdweb/wallets";
 import { ConnectButton, } from "thirdweb/react";
 
 import { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
+import { useAppContext } from "@/context/GlobalContext";
 
 const walletsSetup = [
   createWallet("com.coinbase.wallet", {
@@ -23,9 +23,9 @@ interface TitleComponentProps {
 
 const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) => {
 
-  const {userIsMember, setUserIsMember} = useContext(GlobalContext);
-  const {userIsWriter, setUserIsWriter} = useContext(GlobalContext);
-  const {userIsAdmin, setUserIsAdmin} = useContext(GlobalContext);
+  const {userIsMember, setUserIsMember} = useAppContext();
+  const {userIsWriter, setUserIsWriter} = useAppContext();
+  const {userIsAdmin, setUserIsAdmin} = useAppContext();
 
   const handleConnect = (userInfo: any) => {
     // Handle the disconnect event here
@@ -65,10 +65,17 @@ const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) 
       }
     }
 
+    // wait 1 second for the state to be updated
+    setTimeout(() => {
+      console.log("User is Admin: ", userIsAdmin);
+      console.log("User is Writer: ", userIsWriter);
+      console.log("User is Member: ", userIsMember);
+    }, 1000);
+
     //
-    console.log("User is Admin: ", userIsAdmin);
-    console.log("User is Writer: ", userIsWriter);
-    console.log("User is Member: ", userIsMember);
+    // console.log("User is Admin: ", userIsAdmin);
+    // console.log("User is Writer: ", userIsWriter);
+    // console.log("User is Member: ", userIsMember);
     //
 
 

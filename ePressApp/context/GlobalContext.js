@@ -1,15 +1,15 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
-const GlobalContext = createContext();
+const AppContext = createContext();
 
-const GlobalProvider = ({ children }) => {
+export const AppProvider = ({ children }) => {
 
   const [userIsMember, setUserIsMember] = useState(false);
   const [userIsWriter, setUserIsWriter] = useState(false);
   const [userIsAdmin, setUserIsAdmin] = useState(false);
 
   return (
-    <GlobalContext.Provider value={{ 
+    <AppContext.Provider value={{ 
       userIsMember, 
       setUserIsMember, 
       userIsWriter, 
@@ -18,8 +18,10 @@ const GlobalProvider = ({ children }) => {
       setUserIsAdmin,
       }}>
       {children}
-    </GlobalContext.Provider>
+    </AppContext.Provider>
   );
 };
 
-export { GlobalContext, GlobalProvider };
+export const useAppContext = () => {
+  return useContext(AppContext);
+};

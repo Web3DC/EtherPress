@@ -10,11 +10,11 @@ import LatestPressComponent from "@/components/LatestPress";
 import { LATEST_PUBLIC_MEMBER_RESOURCES } from "@/constants/latestMemberPublicResources";
 
 import { useContext, JSX, SVGProps } from "react"
-import { GlobalContext } from "@/context/GlobalContext";
+import { useAppContext } from "@/context/GlobalContext";
 
 export default function Home() {
 
-  const {userIsMember, setUserIsMember} = useContext(GlobalContext);
+  const { userIsMember } = useAppContext();
 
 //  console.log("* User is Member: ", userIsMember);
 
