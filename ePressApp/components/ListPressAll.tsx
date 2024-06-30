@@ -3,9 +3,19 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image";
 
-import { ILatestResources } from "@/interfaces/latestResources"
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
 
-export default function LatestPressComponent(ResourceInfo: ILatestResources) {
+import { ILatestResourcesAll } from "@/interfaces/latestResourcesAll"
+
+export default function ListPressAllComponent(ResourceInfo: ILatestResourcesAll) {
   return (
     <section className="py-12 md:py-16 lg:py-20">
       <div className="container px-4 md:px-6">
@@ -43,13 +53,32 @@ export default function LatestPressComponent(ResourceInfo: ILatestResources) {
 
         </div>
         <div className="mt-8 flex justify-center">
-          <Link
-            href={ResourceInfo.readMoreRef}
-            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-            prefetch={false}
-          >
-            {ResourceInfo.readMoreTitle}
-          </Link>
+
+        <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">1</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive>
+            2
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#">3</PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+
         </div>
       </div>
     </section>
