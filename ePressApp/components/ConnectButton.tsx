@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createWallet } from "thirdweb/wallets";
 import { ConnectButton } from "thirdweb/react";
 import { useAppContext } from "@/context/GlobalContext";
@@ -26,9 +26,9 @@ const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) 
     const account = userInfo.getAccount();
 
     if (account && account.address) {
-      const address = account.address.toLowerCase(); // Normalizar la dirección a minúsculas
+      const address = account.address.toLowerCase(); // Normalize address to lowercase
 
-      // Verificar si el usuario está en la lista blanca de miembros
+      // Check if the user is in the member whitelist
       const memberWhiteList = process.env.NEXT_PUBLIC_MEMBER_ADDRESS_WHITE_LIST || "";
       if (memberWhiteList.length > 0) {
         const memberList = memberWhiteList.split(",").map(addr => addr.trim().toLowerCase());
@@ -40,7 +40,7 @@ const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) 
         }
       }
 
-      // Verificar si el usuario está en la lista blanca de escritores
+      // Check if the user is in the writer whitelist
       const writerWhiteList = process.env.NEXT_PUBLIC_WRITER_ADDRESS_WHITE_LIST || "";
       if (writerWhiteList.length > 0) {
         const writerList = writerWhiteList.split(",").map(addr => addr.trim().toLowerCase());
@@ -52,7 +52,7 @@ const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) 
         }
       }
 
-      // Verificar si el usuario está en la lista blanca de administradores
+      // Check if the user is in the admin whitelist
       const adminWhiteList = process.env.NEXT_PUBLIC_ADMIN_ADDRESS_WHITE_LIST || "";
       if (adminWhiteList.length > 0) {
         const adminList = adminWhiteList.split(",").map(addr => addr.trim().toLowerCase());
@@ -67,7 +67,7 @@ const ConnectButtonComponent: React.FC<TitleComponentProps> = ({ labelButton }) 
   };
 
   const handleDisconnect = () => {
-    // Manejar el evento de desconexión aquí
+    // Handle the disconnect event here
     console.log("Wallet disconnected");
     setUserIsMember(false);
     setUserIsWriter(false);
