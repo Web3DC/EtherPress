@@ -26,5 +26,5 @@ export const LATEST_PUBLIC_MEMBER_RESOURCES : ILatestResources = {
         }
     ],
     readMoreTitle: "View All Member Resources",
-    readMoreRef: "/resources"
+    readMoreRef: "/member-resources"
 }
